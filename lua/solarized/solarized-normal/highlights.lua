@@ -396,7 +396,10 @@ function M.load_syntax(colors)
 	syntax['@error'] = {fg=colors.red}
 	syntax['@none'] = syntax['NONE']
 	syntax['@preproc'] = syntax['PreProc']
+	syntax['@keyword.directive'] = syntax['PreProc']
 	syntax['@define'] = syntax['Define']
+	syntax['@keyword.directive'] = syntax['Define']
+	syntax['@keyword.directive.define'] = syntax['Define']
 	syntax['@operator'] = syntax['Operator']
 	-- }}}
 
@@ -404,13 +407,16 @@ function M.load_syntax(colors)
 	syntax['@punctuation.delimiter'] = syntax['Statement']
 	syntax['@punctuation.bracket'] = syntax['Delimiter']
 	syntax['@punctuation.special'] = syntax['Delimiter']
+	syntax['@markup.list'] = syntax['Delimiter']
 	-- }}}
 
 	-- Literals {{{
 	syntax['@string'] = syntax['String']
 	syntax['@string.regex'] = syntax['String']
+	syntax['@string.regexp'] = syntax['String']
 	syntax['@string.escape'] = syntax['Special']
 	syntax['@string.special'] = syntax['Special']
+	syntax['@markup.link.label'] = syntax['Special']
 
 	syntax['@character'] = syntax['Character']
 	syntax['@character.special'] = syntax['Special']
@@ -418,6 +424,7 @@ function M.load_syntax(colors)
 	syntax['@boolean'] = syntax['Boolean']
 	syntax['@number'] = syntax['Number']
 	syntax['@float'] = syntax['Float']
+	syntax['@number.float'] = syntax['Float']
 	-- }}}
 
 	-- Functions {{{
@@ -427,10 +434,13 @@ function M.load_syntax(colors)
 	syntax['@function.macro'] = syntax['Macro']
 
 	syntax['@method'] = syntax['Function']
+	syntax['@function'] = syntax['Function']
 	syntax['@method.call'] = syntax['Function']
+	syntax['@function.method.call'] = syntax['Function']
 
 	syntax['@constructor'] = syntax['Special']
 	syntax['@parameter'] = syntax['Normal']
+	syntax['@variable.parameter'] = syntax['Normal']
 	-- }}}
 
 	-- Keywords {{{
@@ -440,11 +450,16 @@ function M.load_syntax(colors)
 	syntax['@keyword.return'] = syntax['Keyword']
 
 	syntax['@conditional'] = syntax['Conditional']
+	syntax['@keyword.conditional'] = syntax['Conditional']
 	syntax['@repeat'] = syntax['Repeat']
+	syntax['@keyword.repeat'] = syntax['Repeat']
 	syntax['@debug'] = syntax['Debug']
+	syntax['@keyword.debug'] = syntax['Debug']
 	syntax['@label'] = syntax['Label']
 	syntax['@include'] = syntax['Include']
+	syntax['@keyword.import'] = syntax['Include']
 	syntax['@exception'] = syntax['Exception']
+	syntax['@keyword.exception'] = syntax['Exception']
 	-- }}}
 
 	-- Types {{{
@@ -454,8 +469,10 @@ function M.load_syntax(colors)
 	syntax['@type.definition'] = syntax['Typedef']
 
 	syntax['@storageclass'] = syntax['StorageClass']
+	syntax['@keyword.storage'] = syntax['StorageClass']
 	syntax['@attribute'] = syntax['Identifier']
 	syntax['@field'] = syntax['Identifier']
+	syntax['@variable.member'] = syntax['Identifier']
 	syntax['@property'] = syntax['Identifier']
 	-- }}}
 
@@ -468,7 +485,9 @@ function M.load_syntax(colors)
 	syntax['@constant.macro'] = syntax['Define']
 
 	syntax['@namespace'] = syntax['Identifier']
+	syntax['@module'] = syntax['Identifier']
 	syntax['@symbol'] = syntax['Identifier']
+	syntax['@string.special.symbol'] = syntax['Identifier']
 	-- }}}
 
 	-- Text {{{
@@ -489,6 +508,26 @@ function M.load_syntax(colors)
 	syntax['@text.note'] = syntax['WarningMsg']
 	syntax['@text.warning'] = syntax['WarningMsg']
 	syntax['@text.danger'] = {fg=colors.red,style='bold'}
+
+	syntax['@markup'] = syntax['Normal']
+	syntax['@markup.strong'] = {fg=colors.base1,bg=colors.base03,style='bold'}
+	syntax['@markup.emphasis'] = {fg=colors.base1,bg=colors.base03,style='bold'}
+	syntax['@markup.underline'] = syntax['Underlined']
+	syntax['@markup.strike'] = syntax['Strikethrough']
+	syntax['@markup.heading'] = syntax['Title']
+	syntax['@markup.raw'] = syntax['String']
+	syntax['@markup.link.url'] = syntax['Underlined']
+	syntax['@string.special.url'] = syntax['Underlined']
+	syntax['@markup.math'] = syntax['Special']
+	syntax['@markup.environment'] = syntax['Macro']
+	syntax['@markup.environment.name'] = syntax['Type']
+	syntax['@markup.link'] = syntax['Constant']
+
+	syntax['@comment.todo'] = syntax['Todo']
+	syntax['@comment.note'] = syntax['WarningMsg']
+	syntax['@comment.warning'] = syntax['WarningMsg']
+	syntax['@comment.error'] = {fg=colors.red,style='bold'}
+	-- TODO: comment.hint
 	-- }}}
 
 	-- Tags {{{
