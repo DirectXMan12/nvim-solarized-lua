@@ -64,9 +64,9 @@ function M.load_syntax(colors)
 	else
 		syntax['StatusLine'] = {fg=colors.base0,bg=colors.base02,style='reverse'}
 		syntax['StatusLineNC'] = {fg=colors.base01,bg=colors.base02,style='reverse'}
-		syntax['TabLine'] = {fg=colors.base01,bg=colors.base02,style='reverse'}
-		syntax['TabLineFill'] = {fg=colors.base01,bg=colors.base02,style='reverse'}
-		syntax['TabLineSel'] = {fg=colors.base0,bg=colors.base02,style='reverse'}
+		syntax['TabLine'] = {fg=colors.base01,bg=colors.base02}
+		syntax['TabLineFill'] = {fg=colors.base01,bg=colors.base02}
+		syntax['TabLineSel'] = {fg=colors.base0,bg=colors.base02}
 		syntax['VertSplit'] = {fg=colors.base01}
 	end
 
